@@ -54,10 +54,11 @@ key? if key
   direction ! drop then
 direction perform step!
 apple? if eat-apple! then
-dead? until drop ." *** GAME OVER ***" ;
+dead? until drop ." *** GAME OVER ***" cr ;
 
 newgame!
 
 ." Snake in Forth"
 3000 ms
 200 gameloop
+bye
