@@ -1,6 +1,6 @@
-: snake-size 200 ;
-: xdim 50 ;
-: ydim 20 ;
+200 constant snake-size
+50  constant xdim
+20  constant ydim
 
 create snake snake-size cells 2 * allot
 create apple 2 cells allot
