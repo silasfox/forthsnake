@@ -1,10 +1,16 @@
 : eat-apple!        ( -- ) 1 xdim myrand 1 ydim myrand apple 2! grow! ;
 : step! ( xdiff ydiff -- ) head* 2@ move-head! pos+ head* 2! ;
 
-: left?   97 = ;
-: up?     119 = ;
-: right?  100 = ;
-: down?   115 = ;
+create vi    104 c, 106 c, 107 c, 108 c,
+create wasd  97 c, 115 c, 119 c, 100 c,
+variable vi?
+
+: keys  vi? @ if vi else wasd then ;
+
+: left?   keys c@ = ;
+: up?     keys 2 + c@ = ;
+: right?  keys 3 + c@ = ;
+: down?   keys 1+ c@ = ;
 
 : choose-direction
    dup left?  if ['] left else

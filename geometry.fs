@@ -23,5 +23,5 @@ variable direction
 
 : wall?     ( -- bool ) head* 2@ 1 ydim within swap 1 xdim within and not ;
 : crossing? ( -- bool ) false length @ 1 ?do i segment head* point= or loop ;
-: apple? ( -- bool ) head* apple point= ;
-: dead?              wall? crossing? or ;
+: apple?    ( -- bool ) head* apple point= ;
+: dead?                 wall? crossing? or ;
