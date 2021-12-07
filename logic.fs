@@ -8,17 +8,17 @@ variable vi?
 : keys  vi? @ if vi else wasd then ;
 
 : left?   keys c@ = ;
+: down?   keys 1+ c@ = ;
 : up?     keys 2 + c@ = ;
 : right?  keys 3 + c@ = ;
-: down?   keys 1+ c@ = ;
 
-: choose-direction
-   dup left?  if ['] left else
-   dup up?    if ['] up else
-   dup right? if ['] right else
-   dup down?  if ['] down else direction @
-   then then then then ;
+: either-left   dup left?  if ['] left rdrop exit then ;
+: or-down       dup down?  if ['] down rdrop exit then ;
+: or-up         dup up?    if ['] up rdrop exit then ;
+: or-right      dup right? if ['] right rdrop exit then ;
+: current       direction @ ;
 
+: choose-direction either-left or-down or-up or-right ( else ) current ;
 : perform  direction perform step! ;
 : whereto  key? if key choose-direction direction ! drop then ;
 : where    whereto perform ;

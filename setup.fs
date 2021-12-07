@@ -2,7 +2,7 @@
 : reset-length     3 length ! ;
 : reset-pos        xdim 2 / ydim 2 / snake 2! ;
 : reset-snake      reset-head reset-pos reset-length ;
-: reset-apple      3 15 myrand 3 15 myrand apple 2! ;
+: reset-apple      3 xdim myrand 3 ydim myrand apple 2! ;
 : reset-direction  ['] up direction ! ;
 
 : newgame!  reset-snake reset-apple reset-direction ;
