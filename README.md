@@ -6,5 +6,3 @@ To run it, just type
 ````
 $ gforth snake.fs
 ````
-
-To read the code, start in `snake.fs` and follow the links.
